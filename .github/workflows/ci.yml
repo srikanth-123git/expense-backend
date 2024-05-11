@@ -5,6 +5,7 @@ jobs:
     uses: srikanth-123git/github-reusable-workflows/.github/workflows/ci.yml@main
     with:
       project_name: expense-backend
+      npm_install: true
     secrets: inherit
 
 
