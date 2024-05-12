@@ -1,6 +1,7 @@
 name: Continuous Integration
 on: [push]
 jobs:
+  samples:
   steps:
     - name: Checkout
       uses: actions/checkout@v4
