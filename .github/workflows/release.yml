@@ -8,5 +8,6 @@ jobs:
     uses: srikanth-123git/github-reusable-workflows/.github/workflows/release.yml@main
     with:
       project_name: expense-backend
-      npm_install: false
+      npm_install: true
+      release-archive_file: "*.js package.json schema VERSION"
     secrets: inherit
