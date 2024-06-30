@@ -11,11 +11,14 @@ node('ci-server') {
   stage('Sonar Scan Code Review') {
     print 'OK'
   }
-  stage('Build Code') {
-    print 'OK'
-  }
-  stage('Release Software') {
-    print 'OK'
+
+  if(binding.hasVariable('TAG_NAME')){
+    stage('Build Code') {
+      print 'OK'
+    }
+    stage('Release Software') {
+      print 'OK'
+    }
   }
 }
 
