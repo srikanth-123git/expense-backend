@@ -10,7 +10,7 @@ node('ci-server') {
     stage('Lint Code') {
       print 'OK'
     }
-    if (env.BRANCH_NAME !=~ 'main') {
+    if (env.BRANCH_NAME != 'main') {
       stage('Run Unit tests') {
         print 'OK'
       }
