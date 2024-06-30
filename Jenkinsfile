@@ -34,6 +34,7 @@ pipeline {
     }
 
     stage('Release Software') {
+      when { buildingTag() }
       steps {
         echo 'Release Software'
       }
