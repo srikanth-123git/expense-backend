@@ -17,7 +17,7 @@ pipeline {
     password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
   }
 
-  environment{
+  environment {
     MYURL="jenkins.com"
   }
 
@@ -31,6 +31,10 @@ pipeline {
           string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
         }
       }
+      steps {
+        echo 'Hello World'
+      }
+    }
 
     stage('Example1') {
       when { triggeredBy 'SCMTrigger' }
@@ -39,16 +43,23 @@ pipeline {
       }
     }
 
-    stage('Example2') {
-      steps {
-        echo 'Hello World'
+    stage('Parallel Stage') {
+      parallel {
+
+        stage('Example2') {
+          steps {
+            echo 'Hello World'
+          }
+        }
+
+        stage('Example3') {
+          steps {
+            echo 'Hello World'
+          }
+        }
       }
     }
 
-    stage('Example3') {
-      steps {
-        echo 'Hello World'
-      }
-    }
   }
+
 }
