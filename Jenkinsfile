@@ -1,5 +1,5 @@
 node('ci-server') {
-  if(binding.hasVariable('TAG_NAME')){
+  if (env.TAG_NAME ==~ '.*') {
     stage('Build Code') {
       print 'OK'
     }
