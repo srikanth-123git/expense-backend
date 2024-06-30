@@ -9,9 +9,14 @@ pipeline {
   stages {
 
     stage('Lint Code') {
-      when { not { buildingTag() } }
+      when {
+        allOf {
+          not { buildingTag() }
+          branch 'main'
+        }
+      }
       steps {
-      sh 'env'
+        sh 'env'
         echo 'Lint Code'
       }
     }
@@ -31,7 +36,12 @@ pipeline {
     }
 
     stage('Sonar Scan Code Review') {
-      when { not { buildingTag() } }
+      when {
+        allOf {
+          not { buildingTag() }
+          branch 'main'
+        }
+      }
       steps {
         echo 'Sonar Scan'
       }
@@ -51,6 +61,6 @@ pipeline {
       }
     }
 
-   }
+  }
 
- }
+}
