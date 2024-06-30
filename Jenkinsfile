@@ -23,10 +23,14 @@ pipeline {
 
   stages {
     stage('Example') {
-      steps {
-        echo 'Hello World'
+      input {
+        message "Should we continue?"
+        ok "Yes, we should."
+        submitter "alice,bob"
+        parameters {
+          string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        }
       }
-    }
 
     stage('Example1') {
       steps {
